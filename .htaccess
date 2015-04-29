@@ -1,0 +1,14 @@
+DirectoryIndex index.html
+
+RewriteEngine on
+
+AddDefaultCharset utf-8
+RewriteBase /
+
+# Exclude directories from rewrite rules
+RewriteRule ^(js|css|images|gallery) - [L]
+
+# For Friendly URLs
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ $1.html [L,QSA]
